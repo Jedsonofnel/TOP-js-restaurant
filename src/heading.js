@@ -1,3 +1,5 @@
+// returns the header node
+
 export default () => {
     const header = document.createElement("header")
 

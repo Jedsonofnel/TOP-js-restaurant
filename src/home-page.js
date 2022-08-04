@@ -4,6 +4,8 @@ import Food3 from "./img/metin-ozer-ORDFDnvK4Vk-unsplash.jpg?as=webp"
 import Food4 from "./img/mia-de-jesus-4J2FTJ9CkSw-unsplash.jpg?as=webp"
 import Food5 from "./img/or-hakim-7NHvPdiUBpM-unsplash.jpg?as=webp"
 
+// returns the homepage node
+
 export default () => {
     const home = document.createElement("main")
     home.setAttribute("class", "page")
