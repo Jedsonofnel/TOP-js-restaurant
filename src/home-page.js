@@ -1,41 +1,12 @@
-// renders the page using the DOM
-export default function () {
-    const contentWrapper = document.createElement("div")
-    contentWrapper.setAttribute("id", "content")
-    document.body.appendChild(contentWrapper)
+import Food1 from "./img/abhishek-hajare-iw3bza94-r0-unsplash.jpg?as=webp"
+import Food2 from "./img/lucas-andrade-jfvrbelwwms-unsplash.jpg?as=webp"
+import Food3 from "./img/metin-ozer-ORDFDnvK4Vk-unsplash.jpg?as=webp"
+import Food4 from "./img/mia-de-jesus-4J2FTJ9CkSw-unsplash.jpg?as=webp"
+import Food5 from "./img/or-hakim-7NHvPdiUBpM-unsplash.jpg?as=webp"
 
-    contentWrapper.appendChild(heading())
-    contentWrapper.appendChild(homePage())
-}
-
-const heading = () => {
-    const header = document.createElement("header")
-
-    // title
-    const title = document.createElement("h2")
-    title.textContent = "Le Drain D'Orage"
-    header.appendChild(title)
-
-    // nav list
-    const nav = document.createElement("nav")
-    const navList = document.createElement("ul")
-    const navOptions = ["home", "menu", "contact"]
-    navOptions.forEach((page) => {
-        const navListOption = document.createElement("li")
-        const navLink = document.createElement("a")
-        navLink.textContent = page
-        navLink.setAttribute("href", "/")
-        navListOption.appendChild(navLink)
-        navList.appendChild(navListOption)
-    })
-    nav.append(navList)
-    header.appendChild(nav)
-
-    return header
-}
-
-const homePage = () => {
+export default () => {
     const home = document.createElement("main")
+    home.setAttribute("class", "page")
 
     // title
     const title = document.createElement("h1")
@@ -58,16 +29,30 @@ const homePage = () => {
     home.append(quotation)
 
     // gallery
+    const galleryHeading = document.createElement("h2")
+    galleryHeading.textContent = "Gallery"
+
     const gallery = document.createElement("div")
     gallery.setAttribute("id", "gallery")
 
     const attributions = [
-        "Photo by Mia De Jesus on Unsplash",
         "Photo by ABISHEK HAJARE on Unsplash",
         "Photo by Lucas Andrade on Unsplash",
         "Photo by Metin Ozer on Unsplash",
+        "Photo by Mia De Jesus on Unsplash",
         "Photo by Or Hakim on Unsplash",
     ]
+
+    const imgs = [Food1, Food2, Food3, Food4, Food5]
+    imgs.forEach((img, index) => {
+        const foodImg = new Image()
+        foodImg.src = img
+        foodImg.alt = attributions[index]
+        gallery.appendChild(foodImg)
+    })
+
+    home.append(galleryHeading)
+    home.append(gallery)
 
     return home
 }
