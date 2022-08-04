@@ -1,5 +1,6 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin")
 
 module.exports = {
     mode: "development",
@@ -24,6 +25,40 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: "asset/resource",
             },
+            {
+                test: /\.(png|jpe?g|webp|tiff)$/i,
+                use: [
+                    {
+                        loader: "webpack-image-resize-loader",
+                        options: {
+                            width: 500,
+                            height: 500,
+                            fit: "inside",
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+    optimization: {
+        minimizer: [
+            new ImageMinimizerPlugin({
+                minimizer: {
+                    implementation: ImageMinimizerPlugin.imageminMinify,
+                    options: {
+                        plugins: [["mozjpeg", { quality: 85 }]],
+                    },
+                },
+                generator: [
+                    {
+                        preset: "webp",
+                        implementation: ImageMinimizerPlugin.imageminGenerate,
+                        options: {
+                            plugins: ["imagemin-webp"],
+                        },
+                    },
+                ],
+            }),
         ],
     },
 }
