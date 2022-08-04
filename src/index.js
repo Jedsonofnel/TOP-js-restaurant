@@ -1,3 +1,3 @@
-const contentWrapper = document.createElement("div");
-contentWrapper.setAttribute("id", "content");
-document.body.appendChild(contentWrapper);
+import pageLoad from "./page-load.js";
+
+pageLoad();
