@@ -1,0 +1,28 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#content {
+    width: min(72ch, 90%);
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Abril Fatface";
+}
+
+p,
+blockquote,
+address,
+ul {
+    font-family: "Roboto";
+    font-weight: 300;
+}
