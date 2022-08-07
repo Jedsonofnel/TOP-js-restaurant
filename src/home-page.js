@@ -4,6 +4,8 @@ import Food3 from "./img/metin-ozer-ORDFDnvK4Vk-unsplash.jpg?as=webp"
 import Food4 from "./img/mia-de-jesus-4J2FTJ9CkSw-unsplash.jpg?as=webp"
 import Food5 from "./img/or-hakim-7NHvPdiUBpM-unsplash.jpg?as=webp"
 
+import styles from "./home.module.css"
+
 // returns the homepage node
 
 export default () => {
@@ -34,8 +36,9 @@ export default () => {
     const galleryHeading = document.createElement("h2")
     galleryHeading.textContent = "Gallery"
 
-    const gallery = document.createElement("div")
+    const gallery = document.createElement("ul")
     gallery.setAttribute("id", "gallery")
+    gallery.classList.add(styles["gallery"])
 
     const attributions = [
         "Photo by ABISHEK HAJARE on Unsplash",
@@ -50,7 +53,10 @@ export default () => {
         const foodImg = new Image()
         foodImg.src = img
         foodImg.alt = attributions[index]
-        gallery.appendChild(foodImg)
+
+        const galleryLI = document.createElement("li")
+        gallery.appendChild(galleryLI)
+        galleryLI.appendChild(foodImg)
     })
 
     home.append(galleryHeading)
