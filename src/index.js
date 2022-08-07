@@ -2,6 +2,8 @@ import heading from "./heading.js"
 import homePage from "./home-page.js"
 import menuPage from "./menu-page.js"
 import contactPage from "./contact-page.js"
+import "./font-declaration.css"
+import "./global.css"
 
 const contentWrapper = document.createElement("div")
 contentWrapper.setAttribute("id", "content")
@@ -37,4 +39,4 @@ document
     .getElementById("contact-link")
     .addEventListener("click", handleNav(contactPage))
 
-renderPage(contactPage)
+renderPage(homePage)
